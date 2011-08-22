@@ -25,7 +25,21 @@ namespace Tokyo_Tyrant_Console.Commands
 
             using (var conn = ConnectionProvider.GetConnection())
             {
-                conn.PutColumns(updateOptions.Key, parsedColumnValues,true);
+                IDictionary<string, IDictionary<string, string>> keysColumns = conn.GetColumns(new[] {updateOptions.Key});
+                foreach (var keyColumns in keysColumns)
+                {
+                    MergeInto(keyColumns.Value, parsedColumnValues);
+                    conn.PutColumns(updateOptions.Key, keyColumns.Value, true);
+                }
+            }
+        }
+
+        private static void MergeInto(IDictionary<string, string> mergeDestination, 
+            IDictionary<string, string> mergeSource)
+        {
+            foreach (var parsedColumn in mergeSource)
+            {
+                mergeDestination[parsedColumn.Key] = parsedColumn.Value;
             }
         }
 
