@@ -8,8 +8,8 @@ Setup
 
 Put TT server address and port into Tokyo-Tyrant-Console.exe.config: 
 
-* key="TTHost" value="127.0.0.1"
-* key="TTPort" value="1978"
+* TTHost 
+* TTPort
 
 Read
 ------
