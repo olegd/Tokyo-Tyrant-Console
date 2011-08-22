@@ -1,0 +1,1 @@
+Tokyo Tyrant Console is an interface to Tokyo Tyrant that allows reading and updating data.
