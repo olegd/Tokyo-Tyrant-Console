@@ -6,10 +6,17 @@ namespace Tokyo_Tyrant_Console
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Tokyo Tyrant Console");
+            var router = new CommandRouter();
+            try
+            {
+                router.RouteArguments(args);    
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("An error occurred. Make sure the command is formed correctly");
 
-            Console.WriteLine("Press Enter to exit");
-            Console.ReadLine();
+                router.RouteArguments(new[] {"--help"});
+            }
         }
     }
 }

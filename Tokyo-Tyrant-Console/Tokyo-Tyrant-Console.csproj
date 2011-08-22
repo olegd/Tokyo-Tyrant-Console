@@ -34,17 +34,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\lib\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TokyoTyrant.NET">
+      <HintPath>..\lib\TokyoTyrant.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandOptions.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\TokyoTyrantCommand.cs" />
+    <Compile Include="CommandRouter.cs" />
+    <Compile Include="Commands\DeleteKeyTokyoTyrantCommand.cs" />
+    <Compile Include="Commands\GetKeyTokyoTyrantCommand.cs" />
+    <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="Commands\UpdateKeyTokyoTyrantCommand.cs" />
+    <Compile Include="Connection\ConnectionPerRequestConnectionProvider.cs" />
+    <Compile Include="Connection\ITokyoTyrantConnectionProvider.cs" />
+    <Compile Include="Output\ConsoleOutputReporter.cs" />
+    <Compile Include="Output\IOutputReporter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
