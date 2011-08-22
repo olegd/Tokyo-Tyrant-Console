@@ -19,7 +19,17 @@ namespace Tokyo_Tyrant_Console.Commands
 
         public void Invoke(CommandOptions options)
         {
-            _outputReporter.WriteLine("help is here");    
+            _outputReporter.WriteLine("Get Key: ");    
+            _outputReporter.WriteLine("--get-key keyValue");    
+            _outputReporter.WriteLine("");
+
+            _outputReporter.WriteLine("Delete Key: ");
+            _outputReporter.WriteLine("--delete-key keyValue");
+            _outputReporter.WriteLine("");
+
+            _outputReporter.WriteLine("Update Key: ");
+            _outputReporter.WriteLine("--update-key keyValue columnName1:columnValue1 [columnName2:columnValue2]");
+            _outputReporter.WriteLine("");    
         }
     }
 }

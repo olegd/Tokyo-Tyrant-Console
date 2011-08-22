@@ -11,26 +11,28 @@ namespace Tokyo_Tyrant_Console
         private readonly IDictionary<CommandOptions, ICommand> _routes 
             = new Dictionary<CommandOptions, ICommand>();
 
+        private readonly IOutputReporter _outputReporter;
+        private readonly ConnectionPerRequestConnectionProvider _connectionProvider;
+
         public CommandRouter()
         {
+            _outputReporter = new ConsoleOutputReporter();
+            _connectionProvider = new ConnectionPerRequestConnectionProvider();
+
             RegisterRoutes();
         }
 
         private void RegisterRoutes()
         {
-            var outputReporter = new ConsoleOutputReporter();
-            var connectionProvider = new ConnectionPerRequestConnectionProvider();
-
-            _routes.Add(new HelpCommandOptions(), new HelpCommand(outputReporter));
-            _routes.Add(new DeleteKeyCommandOptions(), new DeleteKeyTokyoTyrantCommand(connectionProvider, outputReporter));
-            _routes.Add(new GetKeyCommandOptions(), new GetKeyTokyoTyrantCommand(connectionProvider, outputReporter));
-            _routes.Add(new UpdateKeyCommandOptions(), new UpdateKeyTokyoTyrantCommand(connectionProvider, outputReporter));
+            _routes.Add(new HelpCommandOptions(), new HelpCommand(_outputReporter));
+            _routes.Add(new DeleteKeyCommandOptions(), new DeleteKeyTokyoTyrantCommand(_connectionProvider, _outputReporter));
+            _routes.Add(new GetKeyCommandOptions(), new GetKeyTokyoTyrantCommand(_connectionProvider, _outputReporter));
+            _routes.Add(new UpdateKeyCommandOptions(), new UpdateKeyTokyoTyrantCommand(_connectionProvider, _outputReporter));
         }
 
         public void RouteArguments(string[] args)
         {
             ICommandLineParser parser = new CommandLineParser();
-
 
             foreach (var action in _routes)
             {
@@ -40,6 +42,8 @@ namespace Tokyo_Tyrant_Console
                     return;
                 }
             }
+
+            _outputReporter.WriteLine("Unknown command. Run --help for available options");
         }
     }
 }

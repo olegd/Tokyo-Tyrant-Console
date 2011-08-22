@@ -31,9 +31,10 @@ namespace Tokyo_Tyrant_Console
         public IList<string> ColumnValues = null;
     }
 
+    
     public class HelpCommandOptions : CommandOptions
     {
-        [Option(null, "help", Required = true)]
-        public string Command;
+        [Option("h", "help", Required = true)]
+        public bool Command;
     }
 }
