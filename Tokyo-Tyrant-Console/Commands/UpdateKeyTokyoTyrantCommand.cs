@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using TokyoTyrant.NET;
 using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
 using System.Linq;
@@ -26,21 +28,35 @@ namespace Tokyo_Tyrant_Console.Commands
             using (var conn = ConnectionProvider.GetConnection())
             {
                 IDictionary<string, IDictionary<string, string>> keysColumns = conn.GetColumns(new[] {updateOptions.Key});
-                foreach (var keyColumns in keysColumns)
+                if (keysColumns.Any())
                 {
-                    MergeInto(keyColumns.Value, parsedColumnValues);
-                    conn.PutColumns(updateOptions.Key, keyColumns.Value, true);
+                    UpdateExistingColumns(parsedColumnValues, conn, updateOptions, keysColumns);    
+                }
+                else
+                {
+                    conn.PutColumns(updateOptions.Key, parsedColumnValues, true);
                 }
             }
         }
 
-        private static void MergeInto(IDictionary<string, string> mergeDestination, 
+        private void UpdateExistingColumns(IDictionary<string, string> parsedColumnValues, ITokyoTyrantConnection conn,
+                                           UpdateKeyCommandOptions updateOptions, IDictionary<string, IDictionary<string, string>> keysColumns)
+        {
+            foreach (var keyColumns in keysColumns)
+            {
+                var mergedColumns = MergeInto(keyColumns.Value, parsedColumnValues);
+                conn.PutColumns(updateOptions.Key, mergedColumns, true);
+            }
+        }
+
+        private IDictionary<string, string> MergeInto(IDictionary<string, string> mergeDestination, 
             IDictionary<string, string> mergeSource)
         {
             foreach (var parsedColumn in mergeSource)
             {
                 mergeDestination[parsedColumn.Key] = parsedColumn.Value;
             }
+            return mergeDestination;
         }
 
         private IDictionary<string, string> ParseColumnData(UpdateKeyCommandOptions options)
