@@ -11,10 +11,11 @@ namespace Tokyo_Tyrant_Console
             {
                 router.RouteArguments(args);    
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine("An error occurred. Make sure the command is formed correctly");
+                Console.WriteLine(ex.Message);
 
+                Console.WriteLine();
                 router.RouteArguments(new[] {"--help"});
             }
         }

@@ -60,6 +60,7 @@
     <Compile Include="Commands\UpdateKeyTokyoTyrantCommand.cs" />
     <Compile Include="Connection\ConnectionPerRequestConnectionProvider.cs" />
     <Compile Include="Connection\ITokyoTyrantConnectionProvider.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Output\ConsoleOutputReporter.cs" />
     <Compile Include="Output\IOutputReporter.cs" />
     <Compile Include="Program.cs" />
