@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Tokyo_Tyrant_Console.Commands;
 
 namespace Tokyo_Tyrant_Console.Tests
@@ -15,6 +16,14 @@ namespace Tokyo_Tyrant_Console.Tests
             command.Invoke(options);
 
             _connection.Verify(x => x.Delete(Key1));
+        }
+
+        [Test]
+        public void Invoke_NullOptions_ThrowsException()
+        {
+            var command = GetCommand();
+
+            Assert.Throws<ArgumentException>(() => command.Invoke(null));
         }
 
         private DeleteKeyTokyoTyrantCommand GetCommand()
