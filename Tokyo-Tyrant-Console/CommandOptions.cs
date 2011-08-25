@@ -37,4 +37,10 @@ namespace Tokyo_Tyrant_Console
         [Option("h", "help", Required = true)]
         public bool Command;
     }
+
+    public class FindKeyCommandOptions : CommandOptions
+    {
+        [Option(null, "find-key", Required = true)]
+        public string Key;
+    }
 }

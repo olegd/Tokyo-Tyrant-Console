@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandOptions.cs" />
+    <Compile Include="Commands\FindKeyTokyoTyrantCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\TokyoTyrantCommand.cs" />
     <Compile Include="CommandRouter.cs" />

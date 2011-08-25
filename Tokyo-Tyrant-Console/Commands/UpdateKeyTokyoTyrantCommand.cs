@@ -17,12 +17,8 @@ namespace Tokyo_Tyrant_Console.Commands
 
         public override void Invoke(CommandOptions options)
         {
-            var updateOptions = options as UpdateKeyCommandOptions;
-            if (updateOptions == null)
-            {
-                throw new AggregateException("options must be of type UpdateKeyCommandOptions");
-            }
-
+            var updateOptions = TryConvertToSpecificOptions<UpdateKeyCommandOptions>(options);
+            
             var parsedColumnValues = ParseColumnData(updateOptions);
 
             using (var conn = ConnectionProvider.GetConnection())

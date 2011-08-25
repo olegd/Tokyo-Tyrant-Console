@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
 
@@ -14,12 +13,8 @@ namespace Tokyo_Tyrant_Console.Commands
 
         public override void Invoke(CommandOptions options)
         {
-            var getKeyCommandOptions = options as GetKeyCommandOptions;
-            if (getKeyCommandOptions == null)
-            {
-                throw new ArgumentException("options must be of type GetKeyCommandOptions");
-            }
-
+            var getKeyCommandOptions = TryConvertToSpecificOptions<GetKeyCommandOptions>(options);
+            
             IDictionary<string, IDictionary<string, string>> result;
             using (var conn  = ConnectionProvider.GetConnection())
             {

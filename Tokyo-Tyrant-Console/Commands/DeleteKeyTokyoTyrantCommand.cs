@@ -13,12 +13,7 @@ namespace Tokyo_Tyrant_Console.Commands
 
         public override void Invoke(CommandOptions options)
         {
-            var deleteOptions = options as DeleteKeyCommandOptions;
-            if (deleteOptions == null)
-            {
-                throw new ArgumentException("options must be of type DeleteCommandOptions and not null");
-            }
-
+            var deleteOptions = TryConvertToSpecificOptions<DeleteKeyCommandOptions>(options);
             var connection = ConnectionProvider.GetConnection();
             connection.Delete(deleteOptions.Key);
         }
