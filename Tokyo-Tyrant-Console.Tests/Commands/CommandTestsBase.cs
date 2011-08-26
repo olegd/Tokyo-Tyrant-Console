@@ -4,7 +4,7 @@ using TokyoTyrant.NET;
 using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Commands
 {
     public class CommandTestsBase
     {

@@ -27,9 +27,49 @@ namespace Tokyo_Tyrant_Console.Tests
         [Test]
         public void FindByKeyCommand_CorrectlyFormatted_ReturnsRoute()
         {
-            var args = new[] { "--get-key", "key1" };
+            var args = new[] { "--findby-key", "key1" };
 
-            AssertArgumentsRoutesTo(args, typeof(GetKeyTokyoTyrantCommand), typeof(GetKeyCommandOptions));
+            AssertArgumentsRoutesTo(args, typeof(GetKeyTokyoTyrantCommand), typeof(FindByKeyCommandOptions));
+        }
+
+        [Test]
+        public void DeleteKeyCommand_CorrectlyFormatted_ReturnsRoute()
+        {
+            var args = new[] { "--delete-key", "key1" };
+
+            AssertArgumentsRoutesTo(args, typeof(DeleteKeyTokyoTyrantCommand), typeof(DeleteKeyCommandOptions));
+        }
+
+        [Test]
+        public void UpdateKeyCommand_OneColumnPairProvided_ReturnsRoute()
+        {
+            var args = new[] { "--update-key", "key1", "column1:value1" };
+
+            AssertArgumentsRoutesTo(args, typeof(UpdateKeyTokyoTyrantCommand), typeof(UpdateKeyCommandOptions));
+        }
+
+        [Test]
+        public void UpdateKeyCommand_TwoColumnPairsProvided_ReturnsRoute()
+        {
+            var args = new[] { "--update-key", "key1", "column1:value1", "colunn2:value2" };
+
+            AssertArgumentsRoutesTo(args, typeof(UpdateKeyTokyoTyrantCommand), typeof(UpdateKeyCommandOptions));
+        }
+
+        [Test]
+        public void HelpCommand_LongCommandNameSpecified_ReturnsRoute()
+        {
+            var args = new[] { "--help" };
+
+            AssertArgumentsRoutesTo(args, typeof(HelpCommand), typeof(HelpCommandOptions));
+        }
+
+        [Test]
+        public void HelpCommand_ShortCommandNameSpecified_ReturnsRoute()
+        {
+            var args = new[] { "--h" };
+
+            AssertArgumentsRoutesTo(args, typeof(HelpCommand), typeof(HelpCommandOptions));
         }
 
         private void AssertArgumentsRoutesTo(string[] args, Type expectedCommand, Type expectedOptions)

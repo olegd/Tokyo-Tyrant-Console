@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Commands
 {
     [TestFixture]
     public class UpdateKeyCommandTests

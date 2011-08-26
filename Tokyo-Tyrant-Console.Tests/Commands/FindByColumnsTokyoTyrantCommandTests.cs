@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Tokyo_Tyrant_Console.Commands;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Commands
 {
     [TestFixture]
     public class FindByColumnsTokyoTyrantCommandTests : CommandTestsBase

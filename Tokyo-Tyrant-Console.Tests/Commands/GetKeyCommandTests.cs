@@ -5,7 +5,7 @@ using Tokyo_Tyrant_Console.Commands;
 using System.Linq;
 using Tokyo_Tyrant_Console.Routing;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Commands
 {
     [TestFixture]
     public class GetKeyCommandTests : CommandTestsBase
@@ -14,7 +14,7 @@ namespace Tokyo_Tyrant_Console.Tests
         public void Invoke_GetsColumnsFromTokyoTyrantConnection()
         {
             var command = GetCommand();
-            var options = new GetKeyCommandOptions { Key = Key1 };
+            var options = new FindByKeyCommandOptions { Key = Key1 };
 
             var keyData = new Dictionary<string, IDictionary<string, string>>();
             keyData[Key1] = new Dictionary<string, string> {{"login", "oleg@gr.com"}};

@@ -14,14 +14,14 @@ namespace Tokyo_Tyrant_Console.Routing
         public string Key;
     }
 
-    //--get-key key
-    public class GetKeyCommandOptions : CommandOptions
+    //--findby-key key
+    public class FindByKeyCommandOptions : CommandOptions
     {
-        [Option(null, "get-key", Required = true)]
+        [Option(null, "findby-key", Required = true)]
         public string Key;
     }
 
-    //--update-key key column1:value1 column2:value2
+    //--update-key key column1:value1 [column2:value2]
     public class UpdateKeyCommandOptions : CommandOptions
     {
         [Option(null, "update-key", Required = true)]
@@ -31,13 +31,13 @@ namespace Tokyo_Tyrant_Console.Routing
         public IList<string> ColumnValues = null;
     }
 
-    
     public class HelpCommandOptions : CommandOptions
     {
         [Option("h", "help", Required = true)]
         public bool Command;
     }
 
+    //--findby-columns column1:value1
     public class FindByColumnsCommandOptions : CommandOptions
     {
         [Option(null, "findby-columns", Required = true)]

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using Tokyo_Tyrant_Console.Commands;
 using Tokyo_Tyrant_Console.Routing;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Commands
 {
     [TestFixture]
     public class DeleteKeyCommandTests : CommandTestsBase

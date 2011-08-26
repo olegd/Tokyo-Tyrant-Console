@@ -14,7 +14,7 @@ namespace Tokyo_Tyrant_Console.Commands
 
         public override void Invoke(CommandOptions options)
         {
-            var getKeyCommandOptions = TryConvertToSpecificOptions<GetKeyCommandOptions>(options);
+            var getKeyCommandOptions = TryConvertToSpecificOptions<FindByKeyCommandOptions>(options);
             
             IDictionary<string, IDictionary<string, string>> result;
             using (var conn  = ConnectionProvider.GetConnection())

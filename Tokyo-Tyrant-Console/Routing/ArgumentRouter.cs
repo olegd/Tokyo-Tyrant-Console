@@ -31,7 +31,7 @@ namespace Tokyo_Tyrant_Console.Routing
         {
             RegisterRoute(new HelpCommandOptions(), new HelpCommand(OutputReporter));
             RegisterRoute(new DeleteKeyCommandOptions(), new DeleteKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
-            RegisterRoute(new GetKeyCommandOptions(), new GetKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
+            RegisterRoute(new FindByKeyCommandOptions(), new GetKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
             RegisterRoute(new UpdateKeyCommandOptions(), new UpdateKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
             RegisterRoute(new FindByColumnsCommandOptions(), new FindByColumnsTokyoTyrantCommand(ConnectionProvider, OutputReporter));
         }
