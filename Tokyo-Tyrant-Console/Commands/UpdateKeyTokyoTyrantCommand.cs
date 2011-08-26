@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using TokyoTyrant.NET;
 using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
-using System.Linq;
 
 namespace Tokyo_Tyrant_Console.Commands
 {
@@ -19,7 +18,7 @@ namespace Tokyo_Tyrant_Console.Commands
         {
             var updateOptions = TryConvertToSpecificOptions<UpdateKeyCommandOptions>(options);
             
-            var parsedColumnValues = ParseColumnData(updateOptions);
+            IDictionary<string, string> parsedColumnValues = ParseColumnData(updateOptions);
 
             using (var conn = ConnectionProvider.GetConnection())
             {
@@ -57,37 +56,8 @@ namespace Tokyo_Tyrant_Console.Commands
 
         private IDictionary<string, string> ParseColumnData(UpdateKeyCommandOptions options)
         {
-            var result = new Dictionary<string, string>();
-            foreach(var columnValue in options.ColumnValues)
-            {
-                if (!IsValid(columnValue))
-                {
-                    ThrowNotValidFormat(columnValue);
-                }
-
-                var splittedData = columnValue.Split(':');
-                if (splittedData.Count() != 2)
-                {
-                    ThrowNotValidFormat(columnValue);
-                }
-
-                result[splittedData[0]] = splittedData[1];
-            }
-            return result;
+            var columnPariParser = new ColumnPairParser();
+            return columnPariParser.ParseColumns(options.ColumnValues);
         }
-
-        private static void ThrowNotValidFormat(string columnValue)
-        {
-            throw new ArgumentException(columnValue + "is not in a valid format");
-        }
-
-        private bool IsValid(string columnValue)
-        {
-            if (columnValue.Contains(":"))
-            {
-                return true;
-            }
-            return false;
-        }
-    }
+     }
 }

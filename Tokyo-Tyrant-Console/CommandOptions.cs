@@ -40,7 +40,10 @@ namespace Tokyo_Tyrant_Console
 
     public class FindKeyCommandOptions : CommandOptions
     {
-        [Option(null, "find-key", Required = true)]
+        [Option(null, "query-columns", Required = true)]
         public string Key;
+
+        [ValueList(typeof(List<string>))]
+        public IList<string> ColumnCriteria = null;
     }
 }

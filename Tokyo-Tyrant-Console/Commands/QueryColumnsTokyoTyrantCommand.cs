@@ -3,9 +3,9 @@ using Tokyo_Tyrant_Console.Output;
 
 namespace Tokyo_Tyrant_Console.Commands
 {
-    public class FindKeyTokyoTyrantCommand : TokyoTyrantCommand
+    public class QueryColumnsTokyoTyrantCommand : TokyoTyrantCommand
     {
-        public FindKeyTokyoTyrantCommand(ITokyoTyrantConnectionProvider connectionProvider, IOutputReporter outputReporter) 
+        public QueryColumnsTokyoTyrantCommand(ITokyoTyrantConnectionProvider connectionProvider, IOutputReporter outputReporter) 
             : base(connectionProvider, outputReporter)
         {
         }

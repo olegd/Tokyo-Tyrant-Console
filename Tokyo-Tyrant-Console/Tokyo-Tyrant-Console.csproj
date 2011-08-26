@@ -50,8 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnPairParser.cs" />
     <Compile Include="CommandOptions.cs" />
-    <Compile Include="Commands\FindKeyTokyoTyrantCommand.cs" />
+    <Compile Include="Commands\QueryColumnsTokyoTyrantCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\TokyoTyrantCommand.cs" />
     <Compile Include="CommandRouter.cs" />
