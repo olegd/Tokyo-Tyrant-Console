@@ -21,21 +21,9 @@ namespace Tokyo_Tyrant_Console.Commands
                result = conn.GetColumns(new[] {getKeyCommandOptions.Key});
             }
 
-            OutputData(result);
+            OutputReporter.OutputColumns(result);
         }
 
-        private void OutputData(IDictionary<string, IDictionary<string, string>> result)
-        {
-            OutputReporter.WriteLineFormat("Found {0} matching key(s)", result.Keys.Count);
-
-            foreach (var key in result)
-            {
-                OutputReporter.WriteLineFormat("Key: {0}", key.Key);
-                foreach (var column in key.Value)
-                {
-                    OutputReporter.WriteLineFormat("{0} - {1}", column.Key, column.Value);
-                }
-            }
-        }
+        
     }
 }

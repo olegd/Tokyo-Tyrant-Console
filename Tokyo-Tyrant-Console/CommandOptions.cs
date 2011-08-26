@@ -38,11 +38,12 @@ namespace Tokyo_Tyrant_Console
         public bool Command;
     }
 
-    public class FindKeyCommandOptions : CommandOptions
+    public class FindByColumnsCommandOptions : CommandOptions
     {
-        [Option(null, "query-columns", Required = true)]
-        public string Key;
+//        [Option(null, "findby-columns", Required = true)]
+//        public string Key;
 
+        [Option(null, "findby-columns", Required = true)]
         [ValueList(typeof(List<string>))]
         public IList<string> ColumnCriteria = null;
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TokyoTyrant.NET;
 using Tokyo_Tyrant_Console.Connection;
