@@ -7,7 +7,10 @@ namespace Tokyo_Tyrant_Console
     {
         static void Main(string[] args)
         {
-            var router = new CommandRouter();
+            NinjectConfig.Init();
+            
+            var router = NinjectConfig.Get<CommandRouter>();
+
             try
             {
                 router.RouteArguments(args);    

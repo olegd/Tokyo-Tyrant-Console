@@ -1,6 +1,11 @@
+// *******************************************************************************
+// * Copyright (c) 1999 - 2011.
+// * Global Relay Communications Inc.
+// * All rights reserved.
+// *******************************************************************************
+
 using System.Collections.Generic;
 using CommandLine;
-using Ninject;
 using Tokyo_Tyrant_Console.Commands;
 using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
@@ -16,24 +21,23 @@ namespace Tokyo_Tyrant_Console.Routing
     {
         private readonly List<Route> _routes = new List<Route>();
 
-        [Inject]
-        public IOutputReporter OutputReporter { get; set; }
+        private readonly IOutputReporter _outputReporter;
+        private readonly ConnectionPerRequestConnectionProvider _connectionProvider;
 
-        [Inject]
-        public ConnectionPerRequestConnectionProvider ConnectionProvider { get; set; }
-
-        public ArgumentRouter()
+        public ArgumentRouter(IOutputReporter outputReporter, ConnectionPerRequestConnectionProvider connectionProvider)
         {
+            _outputReporter = outputReporter;
+            _connectionProvider = connectionProvider;
             RegisterRoutes();
         }
 
         private void RegisterRoutes()
         {
-            RegisterRoute(new HelpCommandOptions(), new HelpCommand(OutputReporter));
-            RegisterRoute(new DeleteKeyCommandOptions(), new DeleteKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
-            RegisterRoute(new FindByKeyCommandOptions(), new GetKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
-            RegisterRoute(new UpdateKeyCommandOptions(), new UpdateKeyTokyoTyrantCommand(ConnectionProvider, OutputReporter));
-            RegisterRoute(new FindByColumnsCommandOptions(), new FindByColumnsTokyoTyrantCommand(ConnectionProvider, OutputReporter));
+            RegisterRoute(new HelpCommandOptions(), new HelpCommand(_outputReporter));
+            RegisterRoute(new DeleteKeyCommandOptions(), new DeleteKeyTokyoTyrantCommand(_connectionProvider, _outputReporter));
+            RegisterRoute(new FindByKeyCommandOptions(), new GetKeyTokyoTyrantCommand(_connectionProvider, _outputReporter));
+            RegisterRoute(new UpdateKeyCommandOptions(), new UpdateKeyTokyoTyrantCommand(_connectionProvider, _outputReporter));
+            RegisterRoute(new FindByColumnsCommandOptions(), new FindByColumnsTokyoTyrantCommand(_connectionProvider, _outputReporter));
         }
 
         private void RegisterRoute(CommandOptions options, ICommand commandHandler)

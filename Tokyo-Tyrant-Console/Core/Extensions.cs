@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tokyo_Tyrant_Console
+namespace Tokyo_Tyrant_Console.Core
 {
     public static class Extensions
     {

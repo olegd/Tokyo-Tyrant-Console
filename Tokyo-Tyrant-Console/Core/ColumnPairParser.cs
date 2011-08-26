@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Tokyo_Tyrant_Console
+namespace Tokyo_Tyrant_Console.Core
 {
     public class ColumnPairParser
     {

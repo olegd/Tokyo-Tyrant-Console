@@ -2,6 +2,7 @@
 using System.Linq;
 using TokyoTyrant.NET;
 using Tokyo_Tyrant_Console.Connection;
+using Tokyo_Tyrant_Console.Core;
 using Tokyo_Tyrant_Console.Output;
 using Tokyo_Tyrant_Console.Routing;
 

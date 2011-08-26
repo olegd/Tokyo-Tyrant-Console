@@ -1,24 +1,26 @@
-﻿using Ninject;
-using Tokyo_Tyrant_Console.Connection;
+﻿using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
 
 namespace Tokyo_Tyrant_Console.Routing
 {
     public class CommandRouter
     {
-        [Inject]
-        public IOutputReporter OutputReporter { get; set; }
+        private readonly IOutputReporter _outputReporter;
+        private readonly ConnectionPerRequestConnectionProvider _connectionProvider;
 
-        [Inject]
-        public ConnectionPerRequestConnectionProvider ConnectionProvider { get; set; }
-       
+        public CommandRouter(IOutputReporter outputReporter, ConnectionPerRequestConnectionProvider connectionProvider)
+        {
+            _outputReporter = outputReporter;
+            _connectionProvider = connectionProvider;
+        }
+
         public void RouteArguments(string[] args)
         {
-            var routeHandlers = new ArgumentRouter();
+            var routeHandlers = new ArgumentRouter(_outputReporter, _connectionProvider);
             var handler = routeHandlers.Route(args);
             if (handler == null)
             {
-                OutputReporter.WriteLine("Unknown command. Run --help for available options");
+                _outputReporter.Report("Unknown command. Run --help for available options");
                 return;
             }
             handler.Handle();

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using Tokyo_Tyrant_Console.Commands;
 using Tokyo_Tyrant_Console.Routing;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Routing
 {
     [TestFixture]
     public class ArgumentRouterTests
@@ -74,7 +74,7 @@ namespace Tokyo_Tyrant_Console.Tests
 
         private void AssertArgumentsRoutesTo(string[] args, Type expectedCommand, Type expectedOptions)
         {
-            IArgumentRouter router = new ArgumentRouter();
+            IArgumentRouter router = new ArgumentRouter(null, null);
 
             var result = router.Route(args);
 

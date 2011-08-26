@@ -53,7 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColumnPairParser.cs" />
+    <Compile Include="Core\ColumnPairParser.cs" />
     <Compile Include="Routing\CommandOptions.cs" />
     <Compile Include="Commands\FindByColumnsTokyoTyrantCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="Commands\UpdateKeyTokyoTyrantCommand.cs" />
     <Compile Include="Connection\ConnectionPerRequestConnectionProvider.cs" />
     <Compile Include="Connection\ITokyoTyrantConnectionProvider.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Core\Extensions.cs" />
     <Compile Include="NinjectConfig.cs" />
     <Compile Include="Output\ConsoleOutputReporter.cs" />
     <Compile Include="Output\IOutputReporter.cs" />

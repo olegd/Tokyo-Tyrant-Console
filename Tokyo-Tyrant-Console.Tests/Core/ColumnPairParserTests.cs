@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 using System.Linq;
+using NUnit.Framework;
+using Tokyo_Tyrant_Console.Core;
 
-namespace Tokyo_Tyrant_Console.Tests
+namespace Tokyo_Tyrant_Console.Tests.Core
 {
     [TestFixture]
     public class ColumnPairParserTests

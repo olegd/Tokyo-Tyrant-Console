@@ -28,7 +28,7 @@ namespace Tokyo_Tyrant_Console.Routing
         public string Key;
 
         [ValueList(typeof(List<string>))]
-        public IList<string> ColumnValues = null;
+        public IList<string> ColumnValues;
     }
 
     public class HelpCommandOptions : CommandOptions
@@ -44,6 +44,6 @@ namespace Tokyo_Tyrant_Console.Routing
         public bool CommandRouted;
 
         [ValueList(typeof(List<string>))]
-        public IList<string> ColumnCriteria = null;
+        public IList<string> ColumnCriteria;
     }
 }

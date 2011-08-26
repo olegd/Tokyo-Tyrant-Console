@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using TokyoTyrant.NET;
+using Tokyo_Tyrant_Console.Core;
 
 namespace Tokyo_Tyrant_Console.Connection
 {
@@ -36,7 +37,7 @@ namespace Tokyo_Tyrant_Console.Connection
                     @"Configuration parameter: {0} is not set. 
                       Edit .config file to provide it".With(configParameterName));
             }
-            return null;
+            return value;
         }
     }
 }

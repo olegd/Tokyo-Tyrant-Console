@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TokyoTyrant.NET;
 using Tokyo_Tyrant_Console.Connection;
+using Tokyo_Tyrant_Console.Core;
 using Tokyo_Tyrant_Console.Output;
 using Tokyo_Tyrant_Console.Routing;
 
@@ -19,13 +20,21 @@ namespace Tokyo_Tyrant_Console.Commands
 
             var columnCriteria = GetColumnCriteria(findOptions);
             
-            var query = BuildQuery(columnCriteria);
+            var query = BuildTokyoTyrantQuery(columnCriteria);
 
-            var connection = ConnectionProvider.GetConnection();
-            connection.QueryRecords(query);
+            var result = QueryRecords(query);
+
+            OutputReporter.OutputColumns(result);
         }
 
-        private TokyoQuery BuildQuery(IDictionary<string, string> columnCriteria)
+        private IDictionary<string, IDictionary<string, string>> QueryRecords(TokyoQuery query)
+        {
+            var connection = ConnectionProvider.GetConnection();
+            var result = connection.QueryRecords(query);
+            return result;
+        }
+
+        private TokyoQuery BuildTokyoTyrantQuery(IDictionary<string, string> columnCriteria)
         {
             var query = new TokyoQuery();
             foreach (var columnCriterion in columnCriteria)
