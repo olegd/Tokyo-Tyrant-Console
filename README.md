@@ -14,7 +14,7 @@ Put TT server address and port into Tokyo-Tyrant-Console.exe.config:
 Read
 ------
 
-Tokyo-Tyrant-Console --get-key keyName
+Tokyo-Tyrant-Console --findby-key keyName
 
 Returns all columns for a given key.
 

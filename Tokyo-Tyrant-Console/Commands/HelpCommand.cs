@@ -14,24 +14,21 @@ namespace Tokyo_Tyrant_Console.Commands
 
         public void Invoke(CommandOptions options)
         {
-            _outputReporter.Report("Find by key: ");    
-            _outputReporter.Report("--findby-key keyValue");    
+            _outputReporter.Report("--findby-key keyValue");
+            _outputReporter.Report("Returns all columns for a given key.");
             _outputReporter.Report("");
 
-            _outputReporter.Report("Find by columns: ");
             _outputReporter.Report("--findby-columns columnName1:columnValue1 [columnName2:columnValue2]");
-            _outputReporter.Report("*Note: All column/value pairs must match in order for the key to be returned");
-            _outputReporter.Report("*Column values are matched using exact string equality");
+            _outputReporter.Report("Returns all keys and columns that have columns with values that match exactly to columnValue AND columnValue2");
             _outputReporter.Report("");
 
-
-            _outputReporter.Report("Delete Key: ");
             _outputReporter.Report("--delete-key keyValue");
+            _outputReporter.Report("Deletes a key and all columns assosiated with it.");
             _outputReporter.Report("");
 
-            _outputReporter.Report("Update Key: ");
             _outputReporter.Report("--update-key keyValue columnName1:columnValue1 [columnName2:columnValue2]");
-            _outputReporter.Report("");    
+            _outputReporter.Report("Updates column valus for a given key. If column does not exist it is created. If column already has data, it is overwritten.");
+            _outputReporter.Report("");
         }
     }
 }
