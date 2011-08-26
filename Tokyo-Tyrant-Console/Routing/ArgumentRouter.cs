@@ -1,9 +1,3 @@
-// *******************************************************************************
-// * Copyright (c) 1999 - 2011.
-// * Global Relay Communications Inc.
-// * All rights reserved.
-// *******************************************************************************
-
 using System.Collections.Generic;
 using CommandLine;
 using Tokyo_Tyrant_Console.Commands;

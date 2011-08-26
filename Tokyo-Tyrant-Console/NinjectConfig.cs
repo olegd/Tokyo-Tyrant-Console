@@ -1,10 +1,4 @@
-﻿// *******************************************************************************
-// * Copyright (c) 1999 - 2011.
-// * Global Relay Communications Inc.
-// * All rights reserved.
-// *******************************************************************************
-
-using Ninject;
+﻿using Ninject;
 using Tokyo_Tyrant_Console.Connection;
 using Tokyo_Tyrant_Console.Output;
 using Tokyo_Tyrant_Console.Routing;
