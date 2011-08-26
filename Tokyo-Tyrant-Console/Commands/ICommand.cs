@@ -4,6 +4,8 @@
 // * All rights reserved.
 // *******************************************************************************
 
+using Tokyo_Tyrant_Console.Routing;
+
 namespace Tokyo_Tyrant_Console.Commands
 {
     public interface ICommand

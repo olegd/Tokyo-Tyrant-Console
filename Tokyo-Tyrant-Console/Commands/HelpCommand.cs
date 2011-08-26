@@ -5,6 +5,7 @@
 // *******************************************************************************
 
 using Tokyo_Tyrant_Console.Output;
+using Tokyo_Tyrant_Console.Routing;
 
 namespace Tokyo_Tyrant_Console.Commands
 {

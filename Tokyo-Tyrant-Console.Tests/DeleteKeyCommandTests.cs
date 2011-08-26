@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Tokyo_Tyrant_Console.Commands;
+using Tokyo_Tyrant_Console.Routing;
 
 namespace Tokyo_Tyrant_Console.Tests
 {

@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using Tokyo_Tyrant_Console.Commands;
 using System.Linq;
+using Tokyo_Tyrant_Console.Routing;
 
 namespace Tokyo_Tyrant_Console.Tests
 {

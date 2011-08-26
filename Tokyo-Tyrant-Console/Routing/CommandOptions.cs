@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CommandLine;
 
-namespace Tokyo_Tyrant_Console
+namespace Tokyo_Tyrant_Console.Routing
 {
     public abstract class CommandOptions
     {
@@ -40,10 +40,9 @@ namespace Tokyo_Tyrant_Console
 
     public class FindByColumnsCommandOptions : CommandOptions
     {
-//        [Option(null, "findby-columns", Required = true)]
-//        public string Key;
-
         [Option(null, "findby-columns", Required = true)]
+        public bool CommandRouted;
+
         [ValueList(typeof(List<string>))]
         public IList<string> ColumnCriteria = null;
     }
