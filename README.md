@@ -1,32 +1,30 @@
 Tokyo Tyrant Console 
 =====================
 
-Tokyo Tyrant Console is a way to interact with Tokyo Tyrant from command line
+Tokyo Tyrant Console is a comand line tool which allows interacts with Tokyo Tyrant
 
 Setup
 -----
 
-Put TT server address and port into Tokyo-Tyrant-Console.exe.config: 
+Put Tokyo Tyrant server address and port into Tokyo-Tyrant-Console.exe.config: 
 
-* TTHost 
-* TTPort
+    <add key="TTHost" value="127.0.0.1"/>
+    <add key="TTPort" value="1978"/>
 
-Read
+Supported Commands
 ------
 
-Tokyo-Tyrant-Console --findby-key keyName
+    Tokyo-Tyrant-Console --findby-key keyName
 
-Returns all columns for a given key.
+>*Returns all columns for a key that matches exactly with the keyName supplied.*
 
-Update
--------
-Tokyo-Tyrant-Console --update-key keyName columnName1:columnValue1 [columnName2:columnValue2]
 
-Updates column valus for a given key. If column does not exist it is created. If column already has data, it is overwritten.
+    Tokyo-Tyrant-Console --update-key keyName columnName1:columnValue1 [columnName2:columnValue2]
 
-Delete
--------
-Tokyo-Tyrant-Console --delete-key keyName
+>*Updates column valus for a given key. If column does not exist it is created. If column already has data, it is overwritten.*
 
-Deletes a key and all columns assosiated with it.
+
+    Tokyo-Tyrant-Console --delete-key keyName
+
+>*Deletes a key and all columns assosiated with it.*
 
