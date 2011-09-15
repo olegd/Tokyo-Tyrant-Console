@@ -18,6 +18,11 @@ Supported Commands
 
 >*Returns all columns for a key that matches exactly with the keyName supplied.*
 
+    Tokyo-Tyrant-Console --findby-columns columnName1:columnValue1 [columnName2:columnValue2]
+
+>*Returns all keys and columns that have columns with values that match columnValue1 AND columnValue2*
+
+
 
     Tokyo-Tyrant-Console --update-key keyName columnName1:columnValue1 [columnName2:columnValue2]
 
